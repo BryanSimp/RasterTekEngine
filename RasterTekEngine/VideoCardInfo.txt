@@ -1,0 +1,2 @@
+Video Card Name: NVIDIA GeForce RTX 3070
+Video Card Memory: 8018 MB
