@@ -48,7 +48,6 @@ public:
 
 	void SetBackBufferRenderTarget();
 	void ResetViewport();
-	void WriteVideoCardInfoToFile();
 
 private:
 	bool m_vsync_enabled;

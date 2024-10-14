@@ -62,7 +62,7 @@ void SystemClass::Shutdown()
 		m_Application = 0;
 	}
 
-	// Release the input class object.
+	// Release the input object.
 	if (m_Input)
 	{
 		delete m_Input;
@@ -128,7 +128,7 @@ bool SystemClass::Frame()
 		return false;
 	}
 
-	// Do the frame processing for the application class object.
+	// Do the frame processing for the application object.
 	result = m_Application->Frame();
 	if (!result)
 	{

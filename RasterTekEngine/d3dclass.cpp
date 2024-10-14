@@ -3,8 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "d3dclass.h"
 
-#include <fstream>
-
 
 D3DClass::D3DClass()
 {
@@ -347,8 +345,6 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	// Create an orthographic projection matrix for 2D rendering.
 	m_orthoMatrix = XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
-	WriteVideoCardInfoToFile();
-
 	return true;
 }
 
@@ -508,22 +504,4 @@ void D3DClass::ResetViewport()
 	m_deviceContext->RSSetViewports(1, &m_viewport);
 
 	return;
-}
-
-void D3DClass::WriteVideoCardInfoToFile()
-{
-	char cardName[128];
-	int memory;
-
-	// Retrieve video card info
-	GetVideoCardInfo(cardName, memory);
-
-	// Create and write to a text file
-	std::ofstream outFile("VideoCardInfo.txt");
-	if (outFile.is_open())
-	{
-		outFile << "Video Card Name: " << cardName << std::endl;
-		outFile << "Video Card Memory: " << memory << " MB" << std::endl;
-		outFile.close();
-	}
 }
